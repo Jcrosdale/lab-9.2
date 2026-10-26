@@ -1,24 +1,13 @@
 import './App.css';
-import { TextInput } from './components/TextInput/TextInput';
+import CharacterCounter from './components/CharacterCounter/CharacterCounter';
+
 
 function displayApp() {
 
   // Render
   return (
     <div className="">
-      <TextInput 
-      onTextChange={}
-      
-      >
-
-      </TextInput>
-
-      <StatsDisplay
-       stats={}
-       showReadingTime={}
-       >
-
-      </StatsDisplay>
+     <CharacterCounter></CharacterCounter>
     </div>
   );
 }
