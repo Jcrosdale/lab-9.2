@@ -2,7 +2,7 @@ import React from 'react';
 import type { TextInputProps } from '../../types';
 
 export const TextInput: React.FC<TextInputProps> = ({
-    onTextChange,
+    onTextChange, // new text after text changed
     placeholder = 'Start typing your content here...',
     initialValue = ''
 }) => {

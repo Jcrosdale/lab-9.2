@@ -1,27 +1,33 @@
 // Parent Component
-import React from 'react';
 import TextInput from "../TextInput/TextInput" // child component
 import StatsDisplay  from "../StatsDisplay/StatsDisplay" // child component
-import type { CharacterCounterProps } from '../../types'; // interface
+//import type { CharacterCounterProps } from '../../types'; // interface
+import { useState } from 'react'; // Import useState from React
 
 // CharacterCounter component
-function CharacterCounter() {
+function CharacterCounter({ onChange, stats }) {
+    const [textChange, setTextChange] = useState(TextInput.onTextChange.initialValue);
 
     return (
         <div>
-            <TextInput></TextInput>
-            <StatsDisplay></StatsDisplay>
+          <TextInput
+          onTextChange={onChange}
+          />
+          <StatsDisplay
+          stats={StatsDisplay.stats}
+          />  
 
         
         </div>
     )
 }
 
+export default CharacterCounter;
 
 // Create a CharacterCounter component that combines the above components and manages the state.
 
-export interface CharacterCounterProps {
-    minWords?: number;
-    maxWords?: number;
-    targetReadingTime?: number; // in minutes
-}
+//export interface CharacterCounterProps {
+    //minWords?: number;
+    //maxWords?: number;
+    //targetReadingTime?: number; // in minutes
+//}
