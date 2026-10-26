@@ -6,9 +6,11 @@ import { useState } from 'react'; // Import useState from React
 
 // CharacterCounter component
 function CharacterCounter( props: CharacterCounterProps) {
-    const [textChange, setTextChange] = useState();
+    // const [textChange, setTextChange] = useState();
 
-    const [stats, setStats] = useState({});
+    const [stats, setStats] = useState({characterCount: 0, wordCount: 0, readingTime: 0});
+
+
     
     function onChange(text) {
         console.log('Hello from character counter')
@@ -22,10 +24,18 @@ function CharacterCounter( props: CharacterCounterProps) {
         let time = newArr.length/3
         console.log(time.toFixed(0))
 
+        const statObject = {
+            characterCount: text.length,
+            wordCount: newArr.length,
+            readingTime: Math.floor(time) // Math.floor
+
+        } 
         
+        console.dir(statObject)
+        // text -> statObject -> stats
+        setStats(statObject)
         
-        
-        setTextChange(text)
+        //setTextChange(text)
     }
 
 
@@ -35,10 +45,10 @@ function CharacterCounter( props: CharacterCounterProps) {
           <TextInput
           onTextChange={onChange}
           />
-          {/* <StatsDisplay
-          stats={StatsDisplay.stats}
-          />   */}
-          <p> {textChange} </p>
+          <StatsDisplay
+          stats={stats}
+          />   
+          
         
         </div>
     )
