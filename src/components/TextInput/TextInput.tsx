@@ -1,9 +1,9 @@
 import React from 'react';
-import { TextInputProps } from '../../types';
+import type { TextInputProps } from '../../types';
 
 export const TextInput: React.FC<TextInputProps> = ({
     onTextChange,
-    placeholder = 'Start typing...',
+    placeholder = 'Start typing your content here...',
     initialValue = ''
 }) => {
     return (
@@ -18,3 +18,5 @@ export const TextInput: React.FC<TextInputProps> = ({
         </div>
     );
 };
+
+export default TextInput;

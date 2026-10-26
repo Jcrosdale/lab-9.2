@@ -15,8 +15,8 @@ export interface TextStats {
 }
 
 export interface StatsDisplayProps {
-    stats: TextStats;
-    showReadingTime?: boolean;
+    stats: TextStats; // same as above interface
+    showReadingTime?: boolean; 
 }
 
 // Create a CharacterCounter component that combines the above components and manages the state.
