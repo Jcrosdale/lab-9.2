@@ -25,24 +25,24 @@ function CharacterCounter( {minWords, maxWords}: CharacterCounterProps) {
         //console.log(text.length)
 
         // words
-        const newArr = text.split(' ') // splits the text into an array at each space
+        const wordCount = text.split(' ').filter(word => word !== '').length // splits the text into an array at each space
         //console.log(newArr.length)
         // results in an array
 
         // Reading time
-        const time = Math.floor(newArr.length/3) / 60 // 3 words per second
+        const time = Math.floor(wordCount / 3) / 60 // 3 words per second
         //console.log(time.toFixed(0)) // Returns a string, not a number
 
         // Create a new object matching TextStats shape
         const statObject = {
             characterCount: text.length, // count characters
-            wordCount: newArr.length, // word count set after text.split
+            wordCount: wordCount, // word count set after text.split
             readingTime: time // Rounds down, anything under 1 min shows 0
 
 
         } 
         
-        console.log(stats.readingTime)
+        //console.log(stats.readingTime)
         //console.dir(statObject)
 
         // Overall flow
