@@ -6,7 +6,7 @@ import { useState } from 'react'; // Import useState from React
 
 // CharacterCounter component
 // Receives a props object from CharacterCounterProps
-function CharacterCounter( props: CharacterCounterProps) {
+function CharacterCounter( {minWords, maxWords}: CharacterCounterProps) {
     // const [textChange, setTextChange] = useState();
 
     // state holding the stats object
@@ -14,10 +14,13 @@ function CharacterCounter( props: CharacterCounterProps) {
     // starting value is 0 for each property
     const [stats, setStats] = useState({characterCount: 0, wordCount: 0, readingTime: 0});
 
+    // both must be true
+    const belowMin = minWords !== undefined && stats.wordCount < minWords;
+    const aboveMin = maxWords !== undefined && stats.wordCount > maxWords;
 
     // function is the callback that's handed to TextInput
     // TextInput calls it with the typed text.
-    function onChange(text) {
+    function onChange(text: string) {
         //console.log('Hello from character counter')
         //console.log(text.length)
 
@@ -62,7 +65,11 @@ function CharacterCounter( props: CharacterCounterProps) {
           */}
           <StatsDisplay
           stats={stats}
-          />   
+          />
+
+          {/* min and max display */}
+          <p>Min: 25 | Max: 100</p>
+          
           
         
         </div>
@@ -71,10 +78,3 @@ function CharacterCounter( props: CharacterCounterProps) {
 
 export default CharacterCounter;
 
-// Create a CharacterCounter component that combines the above components and manages the state.
-
-//export interface CharacterCounterProps {
-    //minWords?: number;
-    //maxWords?: number;
-    //targetReadingTime?: number; // in minutes
-//}
