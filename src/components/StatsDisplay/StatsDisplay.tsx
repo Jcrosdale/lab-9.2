@@ -2,6 +2,10 @@ import type { StatsDisplayProps } from '../../types'; // import interfaces
 
 export const StatsDisplay = ({ stats, showReadingTime = true }: StatsDisplayProps ) => {
     
+    const totalSeconds = Math.round(stats.readingTime * 60);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = ('0' + (totalSeconds % 60)).slice(-2);
+
     return (
         <div className="stats-display">
             {/* Render properties inside interface */}
@@ -19,8 +23,8 @@ export const StatsDisplay = ({ stats, showReadingTime = true }: StatsDisplayProp
             {/* Only shows if showReadingTime is true */}
             {showReadingTime && (
                 <>
-                    <h3>Reading Time</h3>
-                    <p> {stats.readingTime} </p>
+                    <h3 className="text-sm text-gray-500">Reading Time</h3>
+                    <p className="text-2xl font-bold">{minutes}:{seconds} </p>
                 </>
             )}
         </div>
