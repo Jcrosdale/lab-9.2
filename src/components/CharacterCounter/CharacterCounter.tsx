@@ -30,17 +30,19 @@ function CharacterCounter( {minWords, maxWords}: CharacterCounterProps) {
         // results in an array
 
         // Reading time
-        let time = newArr.length/3 // 3 words per minute
-        console.log(time.toFixed(0)) // Returns a string, not a number
+        const time = Math.floor(newArr.length/3) / 60 // 3 words per second
+        //console.log(time.toFixed(0)) // Returns a string, not a number
 
         // Create a new object matching TextStats shape
         const statObject = {
             characterCount: text.length, // count characters
             wordCount: newArr.length, // word count set after text.split
-            readingTime: Math.floor(time) // Rounds down, anything under 1 min shows 0
+            readingTime: time // Rounds down, anything under 1 min shows 0
+
 
         } 
         
+        console.log(stats.readingTime)
         //console.dir(statObject)
 
         // Overall flow

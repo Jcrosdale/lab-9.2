@@ -24,7 +24,7 @@ export const StatsDisplay = ({ stats, showReadingTime = true }: StatsDisplayProp
             {showReadingTime && (
                 <>
                     <h3 className="text-sm text-gray-500">Reading Time</h3>
-                    <p className="text-2xl font-bold">{minutes}:{seconds} </p>
+                    <p> {minutes}:{seconds} </p>
                 </>
             )}
         </div>
